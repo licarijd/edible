@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "firebase": "^4.10.1",
-    "mailgun-js": "file:node_modules/mailgun-js",
+    "mailgun-js": "^0.11.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1",
