@@ -83,7 +83,17 @@ class App extends Component {
   }
 
   removeFoodItem(item){
-    console.log("remove");
+
+    var food = null;
+
+    var db = firebase.database();
+    var ref = db.ref('food-items/');
+    ref.orderByChild(item).on("child_added", function (snapshot) {
+        food = snapshot.key; 
+        console.log(snapshot.key);
+    });
+    console.log("food" + food);
+    firebase.database().ref('food-items/').child(food).remove();
 
   }  
   
@@ -91,6 +101,7 @@ class App extends Component {
   render() {
     return (
       <div id="interctable" >
+        <div id = "payment-form"></div>
         <div id="intro">
         </div>
             {foodButtonList.map((item, index) => {
@@ -110,11 +121,12 @@ class App extends Component {
               {foodItemSnapshots==null ? false : this.generateButtonList()}
             </div><div>
     {this.state.user ?
-              <button  className="save-map" onClick={this.saveFoodItem.bind(this)}>Save Map</button>
+              <button  className="save-map" onClick={this.saveFoodItem.bind(this)}>Save Food</button>
               :
               <button  className="save-map" onClick={this.login}>Sign In</button>
             }
           <img src={logo} className="App-logo" alt="logo" />
+          
           <div className = "profile-details"  id="profile-details">
             {this.state.user ?
               <button onClick={this.logout}>Log Out</button>
@@ -139,6 +151,19 @@ class App extends Component {
           var userID = user.uid;
         }
     });
+
+const script = document.createElement("script");
+script.src="https://checkout.stripe.com/checkout.js" ;
+script.className="stripe-button";
+script.dataset.key="pk_test_46rh9JVaHf6uNj9pvZaFSio8";
+script.dataset.amount="999";
+script.dataset.name="Company Name";
+script.dataset.description="Widget";
+script.dataset.image="img/documentation/checkout/marketplace.png";
+script.dataset.locale="auto";
+script.dataset.zipCode="true"; // Note camelCase!
+let form = document.getElementById('payment-form');
+form.appendChild(script);
   }
 
   
