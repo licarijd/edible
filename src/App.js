@@ -101,7 +101,17 @@ class App extends Component {
   render() {
     return (
       <div id="interctable" >
-        <div id = "payment-form"></div>
+        <form id = "payment-form" action="/cc" method="POST">
+          <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="KEY"
+            data-amount="999"
+            data-name="Company Name"
+            data-description="Widget"
+            data-image="/img/documentation/checkout/marketplace.png"
+            data-locale="auto">
+          </script>
+        </form>
         <div id="intro">
         </div>
             {foodButtonList.map((item, index) => {
@@ -159,7 +169,7 @@ script.dataset.key="pk_test_46rh9JVaHf6uNj9pvZaFSio8";
 script.dataset.amount="999";
 script.dataset.name="Company Name";
 script.dataset.description="Widget";
-script.dataset.image="img/documentation/checkout/marketplace.png";
+script.dataset.image="https://stripe.com/img/documentation/checkout/marketplace.png";
 script.dataset.locale="auto";
 script.dataset.zipCode="true"; // Note camelCase!
 let form = document.getElementById('payment-form');
