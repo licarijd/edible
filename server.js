@@ -103,7 +103,9 @@ function sendEmail(uid) {
 		
   /*Send confirmation email*/
 	mailgun.messages().send(data, function (error, body) {
+		console.log("sending mail");
 		console.log(body);
+		console.log(error);
 	});
 }
 

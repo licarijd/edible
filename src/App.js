@@ -28,8 +28,8 @@ class App extends Component {
     
     fetch('/sendmail', {
       method: 'POST',
-      body: data,
-      timeout: 0
+      body: data//,
+      //timeout: 0
     });
   }
 
