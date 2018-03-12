@@ -14,7 +14,7 @@ class App extends Component {
       
       this.state = {
           user: null,      		
-      		foodItemField: 'Please enter a food item'
+      		foodItemField: 'please enter a food item'
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.login = this.login.bind(this); 
