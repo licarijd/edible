@@ -11,14 +11,25 @@ var foodButtonList = [];
 class App extends Component {
   constructor() {
       super();
+      
       this.state = {
           user: null,      		
       		foodItemField: 'Please enter a food item'
     }
-
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.login = this.login.bind(this); 
     this.logout = this.logout.bind(this); 
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    
+    fetch('/sendmail', {
+      method: 'POST',
+      body: data,
+    });
   }
 
   saveFoodItem(){
@@ -101,7 +112,7 @@ class App extends Component {
   render() {
     return (
       <div id="interctable" >
-        <form id = "payment-form" action=/*"/cc"*/"/sendmail" method="POST">
+        <form id = "payment-form" /*action=*/ /*"/cc"*/ /*"/sendmail" method="POST"*/ onSubmit={this.handleSubmit}>
           <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="KEY"
