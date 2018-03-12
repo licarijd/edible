@@ -58,15 +58,15 @@ app.use(bodyParser.json());
  */
 
 /*Mailgun info*/
-var api_key = 'key-90376db4dbcb1f4087a2de1cdb57401b';
-var domain = 'sandbox3afde9bd86964f51baa4b7bc268bb80b.mailgun.org';
+var api_key = 'key-a79f8d805d25a51cad5b608ef2933483';
+var domain = 'sandbox22fc0dbba1c64ed1bc62b398dec5603d.mailgun.org';
 var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
 function contact(name, email, message) {
 		
   var data = {
-  from: 'Array Strategies E-Commerce Website <me@samples.mailgun.org>',
-  to: 'arraystrategies@gmail.com',
+  from: 'Edible <me@samples.mailgun.org>',
+  to: 'edibleappofficial@gmail.com',
   subject: 'New email from '+name+' at '+email,
   text: message
 };
@@ -80,8 +80,8 @@ function contact(name, email, message) {
 function contacttest() {
 		
   var data = {
-  from: 'Array Strategies E-Commerce Website <me@samples.mailgun.org>',
-  to: 'arraystrategies@gmail.com',
+  from: 'Edible <me@samples.mailgun.org>',
+  to: 'edibleappofficial@gmail.com',
   subject: 'New email from ',
   text: 'test2'
 };
@@ -95,10 +95,10 @@ function contacttest() {
 function sendEmail(uid) {
 		
   var data = {
-  from: 'Array Strategies E-Commerce Website <me@samples.mailgun.org>',
-  to: 'arraystrategies@gmail.com',
-  subject: 'A new user has purchased documents',
-  text: uid+' has just purchased docs'
+  from: 'Edible <me@samples.mailgun.org>',
+  to: 'edibleappofficial@gmail.com',
+  subject: 'A new user has purchased food',
+  text:/* uid+' has just purchased food'*/ 'A user has just purchased food'
 };
 		
   /*Send confirmation email*/
@@ -110,8 +110,8 @@ function sendEmail(uid) {
 function sendEmailPremium(uid) {
 		
   var data = {
-  from: 'Array Strategies E-Commerce Website <me@samples.mailgun.org>',
-  to: 'arraystrategies@gmail.com',
+  from: 'Edible <me@samples.mailgun.org>',
+  to: 'edibleappofficial@gmail.com',
   subject: 'A new user has purchased documents and training',
   text: uid+' has just purchased docs and training'
 };
@@ -125,8 +125,8 @@ function sendEmailPremium(uid) {
 function sendEmailTraining(uid) {
 		
   var data = {
-  from: 'Array Strategies E-Commerce Website <me@samples.mailgun.org>',
-  to: 'arraystrategies@gmail.com',
+  from: 'Edible <me@samples.mailgun.org>',
+  to: 'edibleappofficial@gmail.com',
   subject: 'A new user has purchased 4 hours of training',
   text: uid+' has just purchased training'
 };
