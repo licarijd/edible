@@ -33,7 +33,7 @@ app.use(forceSSL());
 // Run the app by serving the static files
 // in the dist directory
 //app.use(express.static(__dirname + '/welcome'/* + '/dist'*/));
-app.use(express.static(__dirname + '/build'));
+app.use(express.static(__dirname + '/public'));
 
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
@@ -43,7 +43,7 @@ app.use(express.static(__dirname + '/build'));
 });*/
 
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/build/index.html'));
+  res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
 
