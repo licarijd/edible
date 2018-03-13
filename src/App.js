@@ -120,7 +120,7 @@ class App extends Component {
   render() {
     return (
       <div id="interctable" >
-        <form id = "payment-form" /*action= "/sendmail" method="POST"*/ onSubmit={(e) => {this.handleSubmit; e.preventDefault();}}>
+        <form id = "payment-form" /*action= "/sendmail" method="POST"*/ onSubmit={(e) => {e.preventDefault();this.handleSubmit;}}>
           <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="KEY"
