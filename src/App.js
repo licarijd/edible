@@ -124,7 +124,7 @@ class App extends Component {
       <div id="interctable" >
         <form id = "payment-form" /*action= "/sendmail" */>
           <script
-            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            src="https://checkout.stripe.com/checkout.js"
             data-key="pk_test_46rh9JVaHf6uNj9pvZaFSio8"
             data-amount="999"
             data-name="Company Name"
