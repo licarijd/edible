@@ -25,7 +25,6 @@ class App extends Component {
   handleSubmit(event) {
     //location.reload();
     event.preventDefault();
-
     console.log("handlesub");
     const data = new FormData(event.target);
     fetch('/sendmail', {
@@ -121,7 +120,7 @@ class App extends Component {
   render() {
     return (
       <div id="interctable" >
-        <form id = "payment-form" /*action= "/sendmail" method="POST"*/ onSubmit={this.handleSubmit.bind(this)}>
+        <form id = "payment-form" /*action= "/sendmail" method="POST"*/ onSubmit={(e) => {this.handleSubmit; e.preventDefault();}}>
           <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="KEY"
