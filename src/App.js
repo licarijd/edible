@@ -24,8 +24,9 @@ class App extends Component {
 
   handleSubmit(event) {
     //location.reload();
-    console.log("handlesub");
     event.preventDefault();
+
+    console.log("handlesub");
     const data = new FormData(event.target);
     fetch('/sendmail', {
       method: 'POST',
