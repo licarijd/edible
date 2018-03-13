@@ -26,7 +26,7 @@ class App extends Component {
    // event.preventDefault();
     //const data = new FormData(event.target);
     
-    fetch('/', {
+    fetch('/api/', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: {
