@@ -10,6 +10,8 @@ var foodItemsChecked = false;
 var foodItemSnapshots = "";
 var foodButtonList = [];
 
+var selectedFoodItem = "";
+
 class App extends Component {
   constructor() {
       super();
@@ -50,6 +52,9 @@ class App extends Component {
       }
     });
 
+    this.removeFoodItem()
+    var payPanel = document.getElementById('pay-view');
+    payPanel.hidden = true;
     return false;
   }
 
@@ -116,13 +121,19 @@ class App extends Component {
       return false;
   }
 
-  removeFoodItem(item){
+  activatePayView(item){
+    selectedFoodItem = item + "";
+    var payPanel = document.getElementById('pay-view');
+    payPanel.hidden = false;
+  }
+
+  removeFoodItem(){
 
     var food = null;
 
     var db = firebase.database();
     var ref = db.ref('food-items/');
-    ref.orderByChild(item).on("child_added", function (snapshot) {
+    ref.orderByChild(selectedFoodItem).on("child_added", function (snapshot) {
         food = snapshot.key; 
         console.log(snapshot.key);
     });
@@ -135,17 +146,20 @@ class App extends Component {
   render() {
     return (
       <div id="interctable" >
+
+        <div id = "pay-view">
         <StripeCheckout
         token={this.onToken}
         stripeKey="pk_test_46rh9JVaHf6uNj9pvZaFSio8"
       />
+      </div>
         <div id="intro">
         </div>
             {foodButtonList.map((item, index) => {
               return (
                 <div className="box" key={index}>
                   <div>
-                    <button onClick={() => this.removeFoodItem(item)}>{item/*.title*/}</button>
+                    <button onClick={() => this.activatePayView(item)}>{item/*.title*/}</button>
                   </div>
                 </div>
               )
@@ -203,6 +217,10 @@ let form = document.getElementById('payment-form');
 form.appendChild(script);*/
 
 //this.refs.form.onSubmit = () => this.login();
+
+
+var payPanel = document.getElementById('pay-view');
+payPanel.hidden = true;
   }
 
   
