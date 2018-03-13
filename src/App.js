@@ -14,7 +14,8 @@ class App extends Component {
       
       this.state = {
           user: null,      		
-      		foodItemField: 'Please enter a food item'
+          foodItemField: 'Please enter a food item',
+          value: ""
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.login = this.login.bind(this); 
@@ -23,7 +24,8 @@ class App extends Component {
   }
 
   handleSubmit(event) {
-    //location.reload();
+    
+    alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
     console.log("handlesub");
     const data = new FormData(event.target);
@@ -120,7 +122,7 @@ class App extends Component {
   render() {
     return (
       <div id="interctable" >
-        <form id = "payment-form" /*action= "/sendmail" method="POST"*/ onSubmit={(e) => {e.preventDefault();this.handleSubmit;}}>
+        <form id = "payment-form" /*action= "/sendmail" method="POST"*/ onSubmit={this.handleSubmit}>
           <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="KEY"
