@@ -26,7 +26,7 @@ class App extends Component {
    // event.preventDefault();
     //const data = new FormData(event.target);
     
-    fetch('/sendmail', {
+    fetch('https://edible-app.herokuapp.com/sendmail', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: {
