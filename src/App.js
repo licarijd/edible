@@ -194,7 +194,7 @@ script.dataset.zipCode="true"; // Note camelCase!
 let form = document.getElementById('payment-form');
 form.appendChild(script);
 
-this.refs.form.onsubmit = () => this.login();
+this.refs.form.onSubmit = () => this.login();
   }
 
   
