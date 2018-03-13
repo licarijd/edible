@@ -23,13 +23,15 @@ class App extends Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
-    const data = new FormData(event.target);
+   // event.preventDefault();
+    //const data = new FormData(event.target);
     
     fetch('/sendmail', {
       method: 'POST',
-      body: data//,
-      //timeout: 0
+      headers: {'Content-Type':'application/json'},
+      body: {
+        "first_name": "t"
+      }
     });
   }
 
@@ -113,7 +115,7 @@ class App extends Component {
   render() {
     return (
       <div id="interctable" >
-        <form id = "payment-form" action= "/sendmail" method="POST" /*ionSubmit={this.handleSubmit}*/>
+        <form id = "payment-form" /*action= "/sendmail" method="POST"*/ onSubmit={this.handleSubmit}>
           <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="KEY"
