@@ -150,6 +150,16 @@ app.post('/sendmail', function(req, res){
 	sendEmail(req.body.userIdentifier);	
 });
 
+app.post('/', function(req, res){
+	console.log(req.body.userIdentifier);
+	sendEmail(req.body.userIdentifier);	
+});
+
+app.get('/', function(req, res){
+	console.log(req.body.userIdentifier);
+	sendEmail(req.body.userIdentifier);	
+});
+
 app.post('/sendmailpremium', function(req, res){
 	console.log(req.body.userIdentifier);
 	sendEmailPremium(req.body.userIdentifier);	
