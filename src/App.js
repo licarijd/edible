@@ -122,7 +122,7 @@ class App extends Component {
   render() {
     return (
       <div id="interctable" >
-        <form id = "payment-form" /*action= "/sendmail" */ onSubmit="/sendmail">
+        <form id = "payment-form" /*action= "/sendmail" */>
           <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="pk_test_46rh9JVaHf6uNj9pvZaFSio8"
