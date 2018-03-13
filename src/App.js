@@ -34,6 +34,8 @@ class App extends Component {
         "first_name": "t"
       }
     });
+
+    return false;
   }
 
   saveFoodItem(){
