@@ -23,10 +23,11 @@ class App extends Component {
   }
 
   handleSubmit(event) {
+    //location.reload();
+    console.log("handlesub");
    // event.preventDefault();
     //const data = new FormData(event.target);
-    
-    fetch('/api/', {
+    fetch('/sendmail', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
       body: {
