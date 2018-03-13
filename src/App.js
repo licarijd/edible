@@ -118,7 +118,7 @@ class App extends Component {
         });
       });
 //fgfg
-      return false;
+      //return false;
   }
 
   activatePayView(item){
