@@ -25,8 +25,8 @@ class App extends Component {
   handleSubmit(event) {
     //location.reload();
     console.log("handlesub");
-   // event.preventDefault();
-    //const data = new FormData(event.target);
+    event.preventDefault();
+    const data = new FormData(event.target);
     fetch('/sendmail', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
@@ -194,7 +194,7 @@ script.dataset.zipCode="true"; // Note camelCase!
 let form = document.getElementById('payment-form');
 form.appendChild(script);
 
-this.refs.form.onSubmit = () => this.login();
+//this.refs.form.onSubmit = () => this.login();
   }
 
   
