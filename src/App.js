@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import firebase, { auth, provider } from './fire.js';
 import './App.css';
+import axios from 'axios';
+import StripeCheckout from 'react-stripe-checkout';
 
 var foodItem = "";
 var foodItemsChecked = false;
@@ -21,6 +23,17 @@ class App extends Component {
     this.login = this.login.bind(this); 
     this.logout = this.logout.bind(this); 
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  onToken = (token) => {
+    fetch('/sendmail', {
+      method: 'POST',
+      body: JSON.stringify(token),
+    }).then(response => {
+      response.json().then(data => {
+        alert(`We are in business, ${data.email}`);
+      });
+    });
   }
 
   handleSubmit(event) {
@@ -122,17 +135,10 @@ class App extends Component {
   render() {
     return (
       <div id="interctable" >
-        <form id = "payment-form" /*action= "/sendmail" */>
-          <script
-            src="https://checkout.stripe.com/checkout.js"
-            data-key="pk_test_46rh9JVaHf6uNj9pvZaFSio8"
-            data-amount="999"
-            data-name="Company Name"
-            data-description="Widget"
-            data-image="/img/documentation/checkout/marketplace.png"
-            data-locale="auto">
-          </script>
-        </form>
+        <StripeCheckout
+        token={this.onToken}
+        stripeKey="pk_test_46rh9JVaHf6uNj9pvZaFSio8"
+      />
         <div id="intro">
         </div>
             {foodButtonList.map((item, index) => {
@@ -182,7 +188,7 @@ class App extends Component {
           var userID = user.uid;
         }
     });
-
+/*
 const script = document.createElement("script");
 script.src="https://checkout.stripe.com/checkout.js" ;
 script.className="stripe-button";
@@ -194,7 +200,7 @@ script.dataset.image="https://stripe.com/img/documentation/checkout/marketplace.
 script.dataset.locale="auto";
 script.dataset.zipCode="true"; // Note camelCase!
 let form = document.getElementById('payment-form');
-form.appendChild(script);
+form.appendChild(script);*/
 
 //this.refs.form.onSubmit = () => this.login();
   }

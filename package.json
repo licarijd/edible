@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "firebase": "^4.10.1",
     "mailgun-js": "^0.11.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1",
+    "react-stripe-checkout": "^2.6.3",
     "stripe": "^5.5.0"
   },
   "engines": {
