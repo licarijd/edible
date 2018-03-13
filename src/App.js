@@ -97,6 +97,8 @@ class App extends Component {
           user
         });
       });
+
+      return false;
   }
 
   removeFoodItem(item){
@@ -191,6 +193,8 @@ script.dataset.locale="auto";
 script.dataset.zipCode="true"; // Note camelCase!
 let form = document.getElementById('payment-form');
 form.appendChild(script);
+
+this.refs.form.onsubmit = () => this.login();
   }
 
   
