@@ -36,13 +36,15 @@ class App extends Component {
         alert(`We are in business, ${data.email}`);
       });
     });
+
+    console.log("email sent");
+    this.removeFoodItem();
   }
 
   handleSubmit(event) {
     
     alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
-    this.removeFoodItem();
     console.log("handlesub");
     const data = new FormData(event.target);
     fetch('/sendmail', {
@@ -169,11 +171,11 @@ class App extends Component {
               )
             })}
         <div>
-              {this.state.user && !foodItemsChecked ? this.createFoodItemList(): false
+              {this.state.user && !foodItemsChecked ? this.createFoodItemList().bind(this): false
               }
               </div>
         <div>
-              {foodItemSnapshots==null ? false : this.generateButtonList()}
+              {foodItemSnapshots==null ? false : this.generateButtonList().bind(this)}
             </div><div>
     {this.state.user ?
               <button  className="save-map" onClick={this.saveFoodItem.bind(this)}>Save Food</button>
