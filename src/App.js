@@ -140,6 +140,10 @@ class App extends Component {
     console.log("food" + food);
     firebase.database().ref('food-items/').child(food).remove();
 
+  
+    var payPanel = document.getElementById('pay-view');
+    payPanel.hidden = true;
+
   }  
   
   //Render introduction overlay when web app starts
@@ -147,7 +151,8 @@ class App extends Component {
     return (
       <div id="interctable" >
 
-        <div id = "pay-view">
+        <div id = "pay-view" className = "pay-view">
+        <h2>{selectedFoodItem}</h2>
         <StripeCheckout
         token={this.onToken}
         stripeKey="pk_test_46rh9JVaHf6uNj9pvZaFSio8"
