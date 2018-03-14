@@ -42,6 +42,7 @@ class App extends Component {
     
     alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
+    this.removeFoodItem();
     console.log("handlesub");
     const data = new FormData(event.target);
     fetch('/sendmail', {
@@ -52,9 +53,7 @@ class App extends Component {
       }
     });
 
-    this.removeFoodItem()
-    var payPanel = document.getElementById('pay-view');
-    payPanel.hidden = true;
+   
     return false;
   }
 
