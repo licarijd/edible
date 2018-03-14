@@ -55,7 +55,6 @@ class App extends Component {
       }
     });
 
-   
     return false;
   }
 
@@ -171,11 +170,11 @@ class App extends Component {
               )
             })}
         <div>
-              {this.state.user && !foodItemsChecked ? this.createFoodItemList: false
+              {this.state.user && !foodItemsChecked ? this.createFoodItemList(): false
               }
               </div>
         <div>
-              {foodItemSnapshots==null ? false : this.generateButtonList}
+              {foodItemSnapshots==null ? false : this.generateButtonList()}
             </div><div>
     {this.state.user ?
               <button  className="save-map" onClick={this.saveFoodItem.bind(this)}>Save Food</button>
