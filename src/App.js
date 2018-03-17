@@ -155,7 +155,9 @@ class App extends Component {
   render() {
     return (
       <div id="interctable" >
-        <button  className="save-map" onClick={this.login}>Sign In</button>
+        <div id = "login-page">
+          <button  className="save-map" onClick={this.login}>Sign In</button>
+        </div>
         <div id = "employees">
           {this.state.user ? this.loginEmployee(this.state.user): false}
           <p>hello world</p>
