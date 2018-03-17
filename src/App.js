@@ -144,7 +144,12 @@ class App extends Component {
     var payPanel = document.getElementById('pay-view');
     payPanel.hidden = true;
 
-  }  
+  } 
+  
+  loginEmployee(user){
+    var employeePage = document.getElementById("employees");
+    employeePage.hidden = false;
+  }
   
   //Render introduction overlay when web app starts
   render() {
@@ -152,6 +157,7 @@ class App extends Component {
       <div id="interctable" >
         <button  className="save-map" onClick={this.login}>Sign In</button>
         <div id = "employees">
+          {this.state.user ? this.loginEmployee(this.state.user): false}
           <p>hello world</p>
         </div>
         <div id = "customers">
