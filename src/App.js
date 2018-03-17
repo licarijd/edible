@@ -150,56 +150,62 @@ class App extends Component {
   render() {
     return (
       <div id="interctable" >
+        <button  className="save-map" onClick={this.login}>Sign In</button>
         <div id = "employees">
           <p>hello world</p>
         </div>
-
-        <div id = "pay-view" className = "pay-view">
-        <h2>{selectedFoodItem}</h2>
-        <StripeCheckout
-        token={this.onToken}
-        stripeKey="pk_test_46rh9JVaHf6uNj9pvZaFSio8"
-      />
-      </div>
-        <div id="intro">
-        </div>
-            {foodButtonList.map((item, index) => {
-              return (
-                <div className="box" key={index}>
-                  <div>
-                    <button onClick={() => this.activatePayView(item)}>{item/*.title*/}</button>
+        <div id = "customers">
+          <div id = "pay-view" className = "pay-view">
+            <h2>{selectedFoodItem}</h2>
+            <StripeCheckout
+            token={this.onToken}
+            stripeKey="pk_test_46rh9JVaHf6uNj9pvZaFSio8"
+            />
+          </div>
+          <div id="intro">
+          </div>
+              {foodButtonList.map((item, index) => {
+                return (
+                  <div className="box" key={index}>
+                    <div>
+                      <button onClick={() => this.activatePayView(item)}>{item/*.title*/}</button>
+                    </div>
                   </div>
-                </div>
-              )
-            })}
-        <div>
-              {this.state.user && !foodItemsChecked ? this.createFoodItemList(): false
-              }
-              </div>
-        <div>
-              {foodItemSnapshots==null ? false : this.generateButtonList()}
-            </div><div>
-    {this.state.user ?
+                )
+              })}
+          <div>
+            {this.state.user && !foodItemsChecked ? this.createFoodItemList(): false
+            }
+          </div>
+          <div>
+            {foodItemSnapshots==null ? false : this.generateButtonList()}
+          </div>
+          
+
+
+          <div>
+            {this.state.user ?
               <button  className="save-map" onClick={this.saveFoodItem.bind(this)}>Save Food</button>
               :
               <button  className="save-map" onClick={this.login}>Sign In</button>
             }
-          <img src={logo} className="App-logo" alt="logo" />
-          
-          <div className = "profile-details"  id="profile-details">
-            {this.state.user ?
-              <button onClick={this.logout}>Log Out</button>
-              :
-              <button onClick={this.login}>Ignore this button for now</button>
-            }
-            <input
-            type="text"
-            value={this.state.foodItemField}
-            onChange={this.handleChange}
-          />
+            <img src={logo} className="App-logo" alt="logo" />
+            
+            <div className = "profile-details"  id="profile-details">
+              {this.state.user ?
+                <button onClick={this.logout}>Log Out</button>
+                :
+                <button onClick={this.login}>Ignore this button for now</button>
+              }
+              <input
+              type="text"
+              value={this.state.foodItemField}
+              onChange={this.handleChange}
+              />
+              </div>
             </div>
-            </div>
-            </div>
+          </div>
+      </div>
             );
   }
   //Check auth info
