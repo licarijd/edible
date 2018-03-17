@@ -243,10 +243,11 @@ form.appendChild(script);*/
 
 var payPanel = document.getElementById('pay-view');
 payPanel.hidden = true;
-/* var employeePage = document.getElementById("employees");
+var employeePage = document.getElementById("employees");
 employeePage.hidden = true;
+/*
 var customerPage = document.getElementById("customers");
-customerPage.hidden = true; */
+customerPage.hidden = true;*/
   }
 
   
