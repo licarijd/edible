@@ -150,6 +150,9 @@ class App extends Component {
   render() {
     return (
       <div id="interctable" >
+        <div id = "employees">
+          <p>hello world</p>
+        </div>
 
         <div id = "pay-view" className = "pay-view">
         <h2>{selectedFoodItem}</h2>
