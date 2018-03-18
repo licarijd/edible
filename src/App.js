@@ -156,7 +156,7 @@ class App extends Component {
     return (
       <div id="interctable" >
         <div id = "login-page">
-          <button  className="save-map" onClick={this.login}>Sign In</button>
+          <button  id = "main-login" onClick={this.login}>Sign In</button>
         </div>
         <div id = "employees">
           {this.state.user ? this.loginEmployee(this.state.user): false}
@@ -206,14 +206,14 @@ class App extends Component {
                 <button onClick={this.login}>Ignore this button for now</button>
               }
               <input
-              type="text"
-              value={this.state.foodItemField}
-              onChange={this.handleChange}
+               type="text"
+                value={this.state.foodItemField}
+                onChange={this.handleChange}
               />
               </div>
             </div>
           </div>
-      </div>
+        </div>
             );
   }
   //Check auth info
@@ -245,9 +245,8 @@ var payPanel = document.getElementById('pay-view');
 payPanel.hidden = true;
 var employeePage = document.getElementById("employees");
 employeePage.hidden = true;
-/*
 var customerPage = document.getElementById("customers");
-customerPage.hidden = true;*/
+customerPage.hidden = true;
   }
 
   
