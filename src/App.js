@@ -111,8 +111,8 @@ class App extends Component {
   login() {
     auth.signInWithPopup(provider)
       .then((result) => {
-        const user = result.user;
-        console.log("user: " + user);
+        const user = result.user.email;
+        console.log("user: " + user.email);
         this.setState({
           user
         });
@@ -156,7 +156,7 @@ class App extends Component {
     return (
       <div id="interctable" >
         <div id = "login-page">
-          <button  id = "main-login" onClick={this.login}>Sign In</button>
+          <button id = "customer-login" onClick={this.login}>Sign In</button>
         </div>
         <div id = "employees">
           {this.state.user ? this.loginEmployee(this.state.user): false}
