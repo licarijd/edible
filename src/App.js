@@ -19,7 +19,7 @@ class App extends Component {
       this.state = {
           user: null,      		
           foodItemField: 'Please enter a food item',
-          value: ""
+          value: "",
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.login = this.login.bind(this); 
@@ -116,12 +116,12 @@ class App extends Component {
         this.setState({
           user
         });
-/*         if (this.state.user.email == "edibleappofficial@gmail.com"){
+        if (this.state.user.email == "edibleappofficial@gmail.com"){
           this.loginEmployee(user)
         }
         else{
           this.loginCustomer(user)
-        } */
+        }
       });
 //fgfg
       //return false;
@@ -174,7 +174,7 @@ class App extends Component {
           <button id = "main-login" onClick={this.login}>Sign In</button>
         </div>
         <div id = "employees">
-          {this.state.user.email ==  "edibleappofficial@gmail.com" ? this.loginEmployee(this.state.user): false}
+          {this.state.user ? true : false}
           <div>
             {this.state.user ?
               <button  className="save-map" onClick={this.saveFoodItem.bind(this)}>Save Food</button>
@@ -198,7 +198,7 @@ class App extends Component {
             </div>
         </div>
         <div id = "customers">
-        {this.state.user.email !=  "edibleappofficial@gmail.com" ? this.loginCustomer(this.state.user): false}
+        {this.state.user ? true : false}
           <div id = "pay-view" className = "pay-view">
             <h2>{selectedFoodItem}</h2>
             <StripeCheckout
