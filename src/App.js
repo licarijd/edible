@@ -116,7 +116,12 @@ class App extends Component {
         this.setState({
           user
         });
-        console.log(this.state.user.email)
+/*         if (this.state.user.email == "edibleappofficial@gmail.com"){
+          this.loginEmployee(user)
+        }
+        else{
+          this.loginCustomer(user)
+        } */
       });
 //fgfg
       //return false;
@@ -148,8 +153,17 @@ class App extends Component {
   } 
   
   loginEmployee(user){
+    var loginPage = document.getElementById("main-login");
     var employeePage = document.getElementById("employees");
+    loginPage.hidden = true
     employeePage.hidden = false;
+  }
+
+  loginCustomer(user){
+    var loginPage = document.getElementById("main-login");
+    var customerPage = document.getElementById("customers");
+    loginPage.hidden = true
+    customerPage.hidden = false;
   }
   
   //Render introduction overlay when web app starts
@@ -157,13 +171,34 @@ class App extends Component {
     return (
       <div id="interctable" >
         <div id = "login-page">
-          <button id = "customer-login" onClick={this.login}>Sign In</button>
+          <button id = "main-login" onClick={this.login}>Sign In</button>
         </div>
         <div id = "employees">
-          {this.state.user ? this.loginEmployee(this.state.user): false}
-          <p>hello world</p>
+          {this.state.user.email ==  "edibleappofficial@gmail.com" ? this.loginEmployee(this.state.user): false}
+          <div>
+            {this.state.user ?
+              <button  className="save-map" onClick={this.saveFoodItem.bind(this)}>Save Food</button>
+              :
+              <button  className="save-map" onClick={this.login}>Sign In</button>
+            }
+            <img src={logo} className="App-logo" alt="logo" />
+            
+            <div className = "profile-details"  id="profile-details">
+              {this.state.user ?
+                <button onClick={this.logout}>Log Out</button>
+                :
+                <button onClick={this.login}>Ignore this button for now</button>
+              }
+              <input
+               type="text"
+                value={this.state.foodItemField}
+                onChange={this.handleChange}
+              />
+              </div>
+            </div>
         </div>
         <div id = "customers">
+        {this.state.user.email !=  "edibleappofficial@gmail.com" ? this.loginCustomer(this.state.user): false}
           <div id = "pay-view" className = "pay-view">
             <h2>{selectedFoodItem}</h2>
             <StripeCheckout
@@ -189,30 +224,7 @@ class App extends Component {
           <div>
             {foodItemSnapshots==null ? false : this.generateButtonList()}
           </div>
-          
-
-
-          <div>
-            {this.state.user ?
-              <button  className="save-map" onClick={this.saveFoodItem.bind(this)}>Save Food</button>
-              :
-              <button  className="save-map" onClick={this.login}>Sign In</button>
-            }
-            <img src={logo} className="App-logo" alt="logo" />
-            
-            <div className = "profile-details"  id="profile-details">
-              {this.state.user ?
-                <button onClick={this.logout}>Log Out</button>
-                :
-                <button onClick={this.login}>Ignore this button for now</button>
-              }
-              <input
-               type="text"
-                value={this.state.foodItemField}
-                onChange={this.handleChange}
-              />
-              </div>
-            </div>
+        
           </div>
         </div>
             );
