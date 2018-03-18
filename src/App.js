@@ -118,6 +118,7 @@ class App extends Component {
         this.setState({
           user
         });
+        console.log(this.state.user.email)
         if (this.state.user.email == "edibleappofficial@gmail.com"){
           this.loginEmployee(user)
         }
@@ -209,7 +210,7 @@ class App extends Component {
             </div>
         </div>
         <div id = "customers">
-        {this.state.user ? true : false}
+          {this.state.user ? true : false}
           <div id = "pay-view" className = "pay-view">
             <h2>{selectedFoodItem}</h2>
             <StripeCheckout
@@ -266,7 +267,7 @@ form.appendChild(script);*/
 
 
 var payPanel = document.getElementById('pay-view');
-payPanel.hidden = true;
+payPanel.hidden = false;
 var employeePage = document.getElementById("employees");
 employeePage.hidden = true;
 var customerPage = document.getElementById("customers");
