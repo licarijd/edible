@@ -100,12 +100,14 @@ class App extends Component {
 
   //Auth functions
   logout() {
+    this.loginPage()
     auth.signOut()
       .then(() => {
         this.setState({
           user: null
         });
       });
+    
   }
 
   login() {
@@ -166,6 +168,15 @@ class App extends Component {
     customerPage.hidden = false;
   }
   
+  loginPage(){
+    var loginPage = document.getElementById("main-login");
+    var customerPage = document.getElementById("customers");
+    var employeePage = document.getElementById("employees");
+    loginPage.hidden = false
+    customerPage.hidden = true;
+    employeePage.hidden = true;
+  }
+  
   //Render introduction overlay when web app starts
   render() {
     return (
@@ -217,13 +228,13 @@ class App extends Component {
                   </div>
                 )
               })}
-          <div>
-            {this.state.user && !foodItemsChecked ? this.createFoodItemList(): false
-            }
-          </div>
-          <div>
-            {foodItemSnapshots==null ? false : this.generateButtonList()}
-          </div>
+            <div>
+              {this.state.user && !foodItemsChecked ? this.createFoodItemList(): false
+              }
+            </div>
+            <div>
+              {foodItemSnapshots==null ? false : this.generateButtonList()}
+            </div>
         
           </div>
         </div>
