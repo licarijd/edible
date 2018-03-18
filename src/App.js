@@ -116,7 +116,7 @@ class App extends Component {
         this.setState({
           user
         });
-        console.log(this.state)
+        console.log(this.state.user)
       });
 //fgfg
       //return false;
