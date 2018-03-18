@@ -111,11 +111,12 @@ class App extends Component {
   login() {
     auth.signInWithPopup(provider)
       .then((result) => {
-        const user = result.user.email;
-        console.log("user: " + user.email);
+        const user = result.user;
+        console.log("user: " + user);
         this.setState({
           user
         });
+        console.log(this.state)
       });
 //fgfg
       //return false;
