@@ -19,7 +19,7 @@ class App extends Component {
       this.state = {
           user: null,      		
           foodItemField: 'Please enter a food item',
-          value: ""
+          value: "",
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.login = this.login.bind(this); 
@@ -100,12 +100,14 @@ class App extends Component {
 
   //Auth functions
   logout() {
+    this.loginPage()
     auth.signOut()
       .then(() => {
         this.setState({
           user: null
         });
       });
+    
   }
 
   login() {
@@ -116,6 +118,13 @@ class App extends Component {
         this.setState({
           user
         });
+        console.log(this.state.user.email)
+        if (this.state.user.email == "edibleappofficial@gmail.com"){
+          this.loginEmployee(user)
+        }
+        else{
+          this.loginCustomer(user)
+        }
       });
 //fgfg
       //return false;
@@ -144,59 +153,92 @@ class App extends Component {
     var payPanel = document.getElementById('pay-view');
     payPanel.hidden = true;
 
-  }  
+  } 
+  
+  loginEmployee(user){
+    var loginPage = document.getElementById("main-login");
+    var employeePage = document.getElementById("employees");
+    loginPage.hidden = true
+    employeePage.hidden = false;
+  }
+
+  loginCustomer(user){
+    var loginPage = document.getElementById("main-login");
+    var customerPage = document.getElementById("customers");
+    loginPage.hidden = true
+    customerPage.hidden = false;
+  }
+  
+  loginPage(){
+    var loginPage = document.getElementById("main-login");
+    var customerPage = document.getElementById("customers");
+    var employeePage = document.getElementById("employees");
+    loginPage.hidden = false
+    customerPage.hidden = true;
+    employeePage.hidden = true;
+  }
   
   //Render introduction overlay when web app starts
   render() {
     return (
       <div id="interctable" >
-
-        <div id = "pay-view" className = "pay-view">
-        <h2>{selectedFoodItem}</h2>
-        <StripeCheckout
-        token={this.onToken}
-        stripeKey="pk_test_46rh9JVaHf6uNj9pvZaFSio8"
-      />
-      </div>
-        <div id="intro">
+        <div id = "login-page">
+          <button id = "main-login" onClick={this.login}>Sign In</button>
         </div>
-            {foodButtonList.map((item, index) => {
-              return (
-                <div className="box" key={index}>
-                  <div>
-                    <button onClick={() => this.activatePayView(item)}>{item/*.title*/}</button>
-                  </div>
-                </div>
-              )
-            })}
-        <div>
-              {this.state.user && !foodItemsChecked ? this.createFoodItemList(): false
-              }
-              </div>
-        <div>
-              {foodItemSnapshots==null ? false : this.generateButtonList()}
-            </div><div>
-    {this.state.user ?
+        <div id = "employees">
+          {this.state.user ? true : false}
+          <div>
+            {this.state.user ?
               <button  className="save-map" onClick={this.saveFoodItem.bind(this)}>Save Food</button>
               :
               <button  className="save-map" onClick={this.login}>Sign In</button>
             }
-          <img src={logo} className="App-logo" alt="logo" />
-          
-          <div className = "profile-details"  id="profile-details">
-            {this.state.user ?
-              <button onClick={this.logout}>Log Out</button>
-              :
-              <button onClick={this.login}>Ignore this button for now</button>
-            }
-            <input
-            type="text"
-            value={this.state.foodItemField}
-            onChange={this.handleChange}
-          />
+            <img src={logo} className="App-logo" alt="logo" />
+            
+            <div className = "profile-details"  id="profile-details">
+              {this.state.user ?
+                <button onClick={this.logout}>Log Out</button>
+                :
+                <button onClick={this.login}>Ignore this button for now</button>
+              }
+              <input
+               type="text"
+                value={this.state.foodItemField}
+                onChange={this.handleChange}
+              />
+              </div>
             </div>
+        </div>
+        <div id = "customers">
+          {this.state.user ? true : false}
+          <div id = "pay-view" className = "pay-view">
+            <h2>{selectedFoodItem}</h2>
+            <StripeCheckout
+            token={this.onToken}
+            stripeKey="pk_test_46rh9JVaHf6uNj9pvZaFSio8"
+            />
+          </div>
+          <div id="intro">
+          </div>
+              {foodButtonList.map((item, index) => {
+                return (
+                  <div className="box" key={index}>
+                    <div>
+                      <button onClick={() => this.activatePayView(item)}>{item/*.title*/}</button>
+                    </div>
+                  </div>
+                )
+              })}
+            <div>
+              {this.state.user && !foodItemsChecked ? this.createFoodItemList(): false
+              }
             </div>
+            <div>
+              {foodItemSnapshots==null ? false : this.generateButtonList()}
             </div>
+        
+          </div>
+        </div>
             );
   }
   //Check auth info
@@ -225,12 +267,17 @@ form.appendChild(script);*/
 
 
 var payPanel = document.getElementById('pay-view');
-payPanel.hidden = true;
+payPanel.hidden = false;
+var employeePage = document.getElementById("employees");
+employeePage.hidden = true;
+var customerPage = document.getElementById("customers");
+customerPage.hidden = true;
   }
 
   
 
 }
+
 
 
 export default App;
