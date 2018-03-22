@@ -67,8 +67,17 @@ function contact(name, email, message) {
   var data = {
   from: 'Edible <me@samples.mailgun.org>',
   to: 'edibleappofficial@gmail.com',
-  subject: 'New email from '+name+' at '+email,
+  subject: 'Feedback from '+name+' at '+email,
   text: message
+};
+
+function signup(name, email, zip) {
+		
+  var data = {
+  from: 'Edible <me@samples.mailgun.org>',
+  to: 'edibleappofficial@gmail.com',
+  subject: name + 'wants to sign up for Edible!',
+  text: name + ' ' + email + ' ' + zip
 };
 		
   /*Send confirmation email*/
@@ -139,9 +148,15 @@ function sendEmailTraining(uid) {
 	});
 }
 
-app.post('/contact.html', function(req, res){
+app.post('/feedback', function(req, res){
 	//console.log(req.body.name, req.body.email, req.body.message);
 	contact(req.body.name, req.body.email, req.body.message);
+	//contacttest();	
+});
+
+app.post('/sign-up', function(req, res){
+	//console.log(req.body.name, req.body.email, req.body.message);
+	signup(req.body.name, req.body.email, req.body.zip);
 	//contacttest();	
 });
  
@@ -150,7 +165,7 @@ app.post('/sendmail', function(req, res){
 	sendEmail(req.body.userIdentifier);	
 });
 
-app.post('*', function(req, res){
+/*app.post('*', function(req, res){
 	console.log(req.body.userIdentifier);
 	sendEmail(req.body.userIdentifier);	
 });
@@ -158,7 +173,7 @@ app.post('*', function(req, res){
 app.get('*', function(req, res){
 	console.log(req.body.userIdentifier);
 	sendEmail(req.body.userIdentifier);	
-});
+});*/
 
 app.post('/sendmailpremium', function(req, res){
 	console.log(req.body.userIdentifier);
