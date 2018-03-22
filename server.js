@@ -25,16 +25,16 @@ const forceSSL = function() {
   }
 }
 
-// Instruct the app
+// Instruct the app .
 // to use the forceSSL
 // middleware
 app.use(forceSSL());
 
 // Run the app by serving the static files
 // in the dist directory
+app.use(express.static(__dirname + '/build'));
 app.use(express.static(__dirname + '/feedback'/* + '/dist'*/));
 app.use(express.static(__dirname + '/signup'/* + '/dist'*/));
-app.use(express.static(__dirname + '/build'));
 
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
