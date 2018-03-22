@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        <title>Contact :: Array Strategies Inc.</title>
+  <meta name="description" content="Array Strategies Inc." />
+        <base href="https://array-strategies-training-docs.herokuapp.com/" />
+        <link rel="stylesheet" type="text/css" href="css/all.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/nivoSlider.css" media="all" />
+        <link type="image/x-icon" href="favicon.ico" rel="shortcut icon"/>
+	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="js/cufon.js"></script>
+	<script type="text/javascript" src="js/cufon-fonts.js"></script>
+	<script type="text/javascript" src="js/cufon-settings.js"></script>
+	<script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script src="js/jquery.js"></script> 
+    <script src="js/jquery.form.js"></script>  
+    <script> 
+        // wait for the DOM to be loaded 
+        $(document).ready(function() { 
+            // bind 'myForm' and provide a simple callback function 
+            $('#contact').ajaxForm(function() { 
+				console.log('Send btn clicked');
+                window.location.href = "https://array-strategies-training-docs.herokuapp.com/thanks-for-contact!.html"; 
+            }); 
+        }); 
+    </script>
+	<script type="text/javascript" language="javascript">
+		function redirect()
+		{
+		window.location.href = "/thanks-for-contact!.html";
+		}
+	</script>
+
+</head>
+<body>
+	<div id="wrapper">
+		<!-- Header -->
+		<div id="header">
+			<h1><a href="">Array Strategies Inc.</a></h1>
+			<ul id="nav">
+  <li class="first"><a href="https://array-strategies-training-docs.herokuapp.com/" title="Services" >Services</a></li>
+<li><a href="array-strategies.html" title="Array Strategies" services/organizational-common-sense.html>Array Strategies</a></li>
+<li><a href="collaborators/" title="Collaborators" >Collaborators</a></li>
+<li><a href="links/" title="Links" >Links</a></li>
+<li class="last active"><a href="contact.html" title="Contact" https://twitter.com/Mggiguere>Contact</a></li>
+
+</ul>  
+		</div>
+		<div id="main-inner">
+			<!-- Sidebar -->
+			<div id="sidebar">
+				<h2>Contact Us</h2><address>
+<em>Michael Giguere</em>
+<a href="mailto:&#109;&#103;&#105;&#103;&#117;&#101;&#114;&#101;&#064;&#097;&#114;&#114;&#097;&#121;&#105;&#110;&#099;&#046;&#099;&#097;">&#109;&#103;&#105;&#103;&#117;&#101;&#114;&#101;&#064;&#097;&#114;&#114;&#097;&#121;&#105;&#110;&#099;&#046;&#099;&#097;</a>
+<span>416 302 8539</span>
+<p>I am based in Mississauga, Ontario, Canada</p>
+<p>I may be found on LinkedIn</p>
+<div class="social-links">
+<a target="_blank" href="http://ca.linkedin.com/pub/michael-giguere/4/438/666"><img src="images/social1.gif" alt="" height="27" width="92" /></a>
+<a target="_blank" href="http://www.facebook.com/?sfrm=1#!/profile.php?id=100000188007985"><img src="images/social2.gif" alt="" height="27" width="92" /></a>
+</div>
+</address>
+			</div>
+			<!-- Content -->
+			<div id="content">
+			   
+
+			  
+<form action="contact.html" method="post" id="contact"  onsubmit="return redirect()">
+  
+				
+					<fieldset>
+						<span>Send us a message</span>
+						<label for="name">Name (required) <span class="error"></span></label>
+						<input name="name" type="text" id="name" />
+						<label for="email">Email (required) <span class="error"></span></label>
+						<input name="email" type="text" id="email" />
+						<label for="message">Message (required) <span class="error"></span></label>
+						<textarea name="message" id="message" cols="30" rows="10"></textarea>
+						<input type="submit" class="btn" value="Send" />
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		
+		
+		<div id="footer">
+			<ul class="company-info">
+				<li>
+					<span>© 2011 Array strategies inc. All rights reserved.</span>
+				  <a href="https://array-strategies-training-docs.herokuapp.com/login">Get training and documents NOW</a>
+				</li>
+				<li>
+					<span>Address: 1942 Barsuda Drive, Mississauga, Ontario. </span>
+					Canada L5J1V5
+				</li>
+				<li>
+					<span>Call us: 416-302-8539 </span>
+					<span>Email us to request a quote or information:</span>
+					<a href="mailto:&#109;&#103;&#105;&#103;&#117;&#101;&#114;&#101;&#064;&#097;&#114;&#114;&#097;&#121;&#105;&#110;&#099;&#046;&#099;&#097;">&#109;&#103;&#105;&#103;&#117;&#101;&#114;&#101;&#064;&#097;&#114;&#114;&#097;&#121;&#105;&#110;&#099;&#046;&#099;&#097;</a>
+				</li>
+			</ul>
+</div>
+	</div>
+</body>
+</html>

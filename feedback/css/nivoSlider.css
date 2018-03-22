@@ -1,0 +1,114 @@
+#slider {
+	width:100%; /* Make sure your images are the same size */
+	/*height:398px;*/ /* Make sure your images are the same size */
+        height:480px;
+	overflow:hidden;
+}
+.slide {
+	width:618px; /* Make sure your images are the same size */
+	height:480px;
+	background:#ff0;
+	cursor:default;
+	z-index:1;
+	display:block;
+}
+/* jQuery */
+.nivoSlider {
+	position:relative;
+}
+.nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	border:0;
+	padding:0;
+	margin:0;
+	z-index:6;
+	display:none;
+}
+/* The slices and boxes in the Slider */
+.nivo-slice {
+	display:block;
+	position:absolute;
+	z-index:5;
+	height:100%;
+}
+.nivo-box {
+	display:block;
+	position:absolute;
+	z-index:5;
+}
+/* Caption styles */
+.nivo-caption {
+	height:100%;
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	width:100%;
+	z-index:8;
+}
+.nivo-html-caption {display:none;}
+.nivo-caption .caption-holder {
+	width:430px;
+	padding-top:70px;
+	font-size:15px;
+	color:#5c6773;
+}
+.nivo-caption .title {
+	line-height:45px;
+	font-size:40px;
+	display:block;
+	color:#629ccd;
+	margin-bottom:30px;
+	font-weight:normal;
+}
+.nivo-caption p {
+	line-height:20px;
+	margin:0;
+	width:350px;
+}
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a {
+	position:absolute;
+	top:45%;
+	z-index:9;
+	cursor:pointer;
+}
+.nivo-prevNav {
+	left:0px;
+}
+.nivo-nextNav {
+	right:0px;
+}
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav {
+	position:absolute;
+	left:0;
+	bottom:130px;
+	z-index:100;
+	font-size:16px;
+}
+.nivo-controlNav a {
+	background:#daeafb;
+	position:relative;
+	z-index:100;
+	cursor:pointer;
+	float:left;
+	width:30px;
+	height:30px;
+	color:#629ccd;
+	line-height:30px;
+	text-align:center;
+	margin-right:2px;
+}
+.nivo-controlNav a.active {
+	background:#edf5fd;
+}
