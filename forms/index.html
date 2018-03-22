@@ -1,3 +1,71 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        <title>Contact :: Array Strategies Inc.</title>
+  <meta name="description" content="Array Strategies Inc." />
+        <base href="" />
+        <link rel="stylesheet" type="text/css" href="css/all.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/nivoSlider.css" media="all" />
+        <link type="image/x-icon" href="favicon.ico" rel="shortcut icon"/>
+	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="js/cufon.js"></script>
+	<script type="text/javascript" src="js/cufon-fonts.js"></script>
+	<script type="text/javascript" src="js/cufon-settings.js"></script>
+	<script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script src="js/jquery.js"></script> 
+    <script src="js/jquery.form.js"></script>  
+    <script> 
+        // wait for the DOM to be loaded 
+        $(document).ready(function() { 
+            // bind 'myForm' and provide a simple callback function 
+            $('#contact').ajaxForm(function() { 
+				console.log('Send btn clicked');
+                window.location.href = "https://array-strategies-training-docs.herokuapp.com/thanks-for-contact!.html"; 
+            }); 
+        }); 
+    </script>
+	<script type="text/javascript" language="javascript">
+		function redirect()
+		{
+		window.location.href = "/thanks-for-contact!.html";
+		}
+	</script>
+
+</head>
+<body>
+	<div id="wrapper">
+		<!-- Header -->
+		
+		<div id="main-inner">
+			<!-- Sidebar -->
+			<div id="sidebar">
+				<address>
+</div>
+</address>
+			</div>
+			<!-- Content -->
+			<div id="content">
+			   
+
+			  
+<form action="../sign-up" method="post" id="contact"  onsubmit="return redirect()">
+  
+				
+					<fieldset>
+						<span>Fill out the form to sign up and become one of Edible’s first customers!</span>
+						<label for="name">Name (required) <span class="error"></span></label>
+						<input name="name" type="text" id="name" />
+						<label for="email">Email (required) <span class="error"></span></label>
+						<input name="email" type="text" id="email" />
+						<label for="zip">Postal Code/ZIP (We're trying to get an idea of where our future customers are.  This will help us when deciding which grocery stores to work with.) <span class="error"></span></label>
+						<input name="zip" id="zip" type="text" id="email" ></textarea>
+						<input type="submit" class="btn" value="Submit" />
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
 </html>
