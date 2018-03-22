@@ -70,21 +70,26 @@ function contact(name, email, message) {
   subject: 'Feedback from '+name+' at '+email,
   text: message
 };
+  /*Send confirmation email*/
+	mailgun.messages().send(data, function (error, body) {
+		console.log(body);
+	});
+}
 
 function signup(name, email, zip) {
 		
   var data = {
   from: 'Edible <me@samples.mailgun.org>',
   to: 'edibleappofficial@gmail.com',
-  subject: name + 'wants to sign up for Edible!',
-  text: name + ' ' + email + ' ' + zip
+  subject: 'Feedback from '+name+' at '+email,
+  text: message
 };
-		
   /*Send confirmation email*/
 	mailgun.messages().send(data, function (error, body) {
 		console.log(body);
 	});
 }
+		
 
 function contacttest() {
 		
