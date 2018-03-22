@@ -32,25 +32,23 @@ app.use(forceSSL());
 
 // Run the app by serving the static files
 // in the dist directory
-app.use(express.static(__dirname + '/build'));
 app.use(express.static(__dirname + '/feedback'/* + '/dist'*/));
 app.use(express.static(__dirname + '/signup'/* + '/dist'*/));
+app.use(express.static(__dirname + '/build'));
 
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
 
-
-
-app.get('/app', function(req, res) {
-  res.sendFile(path.join(__dirname + '/build/index.html'));
-});
-
-app.get('/feedback', function(req, res) {
+app.get('/feedback/*', function(req, res) {
   res.sendFile(path.join('/feedback/index.html'));
 });
 
-app.get('/signup', function(req, res) {
+app.get('/signup/*', function(req, res) {
   res.sendFile(path.join('/signup/index.html'));
+});
+
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/build/index.html'));
 });
 
 
