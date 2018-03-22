@@ -50,17 +50,17 @@
 			   
 
 			  
-<form action="sign-up" method="post" id="contact"  onsubmit="return redirect()">
+<form action="feedback" method="post" id="contact"  onsubmit="return redirect()">
   
 				
 					<fieldset>
-						<span>Fill out the form to sign up and become one of Edible’s first customers!</span>
+						<span>Give Us Feedback and Suggestions!</span>
 						<label for="name">Name (required) <span class="error"></span></label>
 						<input name="name" type="text" id="name" />
 						<label for="email">Email (required) <span class="error"></span></label>
 						<input name="email" type="text" id="email" />
-						<label for="zip">Postal Code/ZIP (We're trying to get an idea of where our future customers are.  This will help us when deciding which grocery stores to work with.) <span class="error"></span></label>
-						<input name="zip" id="zip" type="text" id="email" ></textarea>
+						<label for="message">Message (required) <span class="error"></span></label>
+						<textarea name="message" id="message" cols="30" rows="10"></textarea>
 						<input type="submit" class="btn" value="Submit" />
 					</fieldset>
 				</form>
