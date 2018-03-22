@@ -46,7 +46,7 @@ app.get('/welcome/sign-up', function(req, res) {
   res.sendFile(path.join('/welcome/sign-up.html'));
 });
 
-app.get('/*', function(req, res) {
+app.get('/app*', function(req, res) {
   res.sendFile(path.join(__dirname + '/build/index.html'));
 });
 
