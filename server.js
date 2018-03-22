@@ -160,7 +160,7 @@ app.post('/feedback', function(req, res){
 });
 
 app.post('/sign-up', function(req, res){
-	//console.log(req.body.name, req.body.email, req.body.message);
+	console.log(req.body.name, req.body.email, req.body.message);
 	signup(req.body.name, req.body.email, req.body.zip);
 	//contacttest();	
 });
