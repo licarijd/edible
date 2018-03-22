@@ -81,8 +81,8 @@ function signup(name, email, zip) {
   var data = {
   from: 'Edible <me@samples.mailgun.org>',
   to: 'edibleappofficial@gmail.com',
-  subject: 'Feedback from '+name+' at '+email,
-  text: message
+  subject: name+' would like to sign up for Edible! ',
+  text: name + ' ' + email + ' ' + zip
 };
   /*Send confirmation email*/
 	mailgun.messages().send(data, function (error, body) {
