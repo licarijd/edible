@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-        <title>Contact :: Array Strategies Inc.</title>
-  <meta name="description" content="Array Strategies Inc." />
+        <title>Sign Up:: Edible</title>
+  <meta name="description" content="Edible" />
         <base href="" />
         <link rel="stylesheet" type="text/css" href="css/all.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="css/nivoSlider.css" media="all" />
@@ -20,7 +20,7 @@
         // wait for the DOM to be loaded 
         $(document).ready(function() { 
             // bind 'myForm' and provide a simple callback function 
-            $('#contact').ajaxForm(function() { 
+            $('#sign-up').ajaxForm(function() { 
 				console.log('Send btn clicked');
                 window.location.href = "https://edible-app.herokuapp.com/thanks-for-signup.html"; 
             }); 
@@ -60,7 +60,7 @@
 						<label for="email">Email (required) <span class="error"></span></label>
 						<input name="email" type="text" id="email" />
 						<label for="zip">Postal Code/ZIP (We're trying to get an idea of where our future customers are.  This will help us when deciding which grocery stores to work with.) <span class="error"></span></label>
-						<input name="zip" id="zip" type="text" id="email" ></textarea>
+						<input name="zip" type="text" id="zip" ></textarea>
 						<input type="submit" class="btn" value="Submit" />
 					</fieldset>
 				</form>
