@@ -38,9 +38,13 @@ app.use(express.static(__dirname + '/build'));
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
 
-/*app.get('/welcome/*', function(req, res) {
-  res.sendFile(path.join('/welcome/index.html'));
-});*/
+app.get('/welcome/feedback', function(req, res) {
+  res.sendFile(path.join('/welcome/feedback.html'));
+});
+
+app.get('/welcome/sign-up', function(req, res) {
+  res.sendFile(path.join('/welcome/sign-up.html'));
+});
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname + '/build/index.html'));
