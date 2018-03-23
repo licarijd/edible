@@ -87,6 +87,7 @@ function signup(name, email, zip) {
   /*Send confirmation email*/
 	mailgun.messages().send(data, function (error, body) {
 		console.log(body);
+		console.log(error);
 	});
 }
 		
