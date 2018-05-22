@@ -110,6 +110,11 @@ class App extends Component {
     
   }
 
+  shittyMethod(){
+
+    console.log("fuck")
+  }
+
   login() {
     auth.signInWithPopup(provider)
       .then((result) => {

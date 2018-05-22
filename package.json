@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "build-dependencies": "^1.1.2",
     "firebase": "^4.10.1",
     "mailgun-js": "^0.11.2",
     "react": "^16.2.0",
